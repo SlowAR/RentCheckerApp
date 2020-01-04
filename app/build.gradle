@@ -1,14 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        release {
-            storeFile file('D:\\SlowAR\\Projects\\RentCheckerApp\\rent-checker-keystore.jks')
-            storePassword 'a06B06m15MTATimoha'
-            keyAlias = 'upload'
-            keyPassword '191117bjtg0040'
-        }
-    }
     compileSdkVersion 28
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -19,17 +11,14 @@ android {
         versionName "0.8.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        signingConfig signingConfigs.release
         project.ext.set("archivesBaseName", "rent_checker_" + defaultConfig.versionName)
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
         debug {
-            signingConfig signingConfigs.debug
         }
     }
     dataBinding {
